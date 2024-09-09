@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Aztec Wallet",
+  "version": "0.0.1",
+  "action": {
+      "default_popup": "index.html"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' http://localhost:* http://127.0.0.1:*; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://unpkg.com/@aztec/bb.js@0.51.0/dest/browser/index.js"
+  }
+}
