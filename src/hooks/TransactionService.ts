@@ -33,7 +33,7 @@ export const getPendingTransactions = (): TxHash[] => {
     return transactionQueue.map(({ txHash }) => txHash);
 }
 
-export const getTransactions = async () => {
+export const getTransactions = () => {
     const transactions = localStorage.getItem('transactions');
     if (!transactions) {
         return ;
