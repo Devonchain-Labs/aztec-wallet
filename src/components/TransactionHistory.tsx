@@ -21,14 +21,14 @@ function TransactionHistory() {
       <div>
         <h2>Pending Transactions</h2>
             <ul>
-                {pendingTransactions.map((transaction, index) => (
+                {pendingTransactions?.map((transaction, index) => (
                     <li key={index}>{transaction.toString()}</li>
                 ))}
             </ul>
 
         <h2>Past Transactions</h2>
           <ul>
-              {transactions.map((transaction, index) => (
+              {transactions?.map((transaction, index) => (
                   <li key={index}>{transaction.toString()}</li>
               ))}
           </ul>

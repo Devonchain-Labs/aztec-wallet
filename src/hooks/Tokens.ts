@@ -17,6 +17,6 @@ class Token {
     }
 }
 
-export const useTokens = (): Token[] => {
+export const getTokens = (): Token[] => {
     return defaultTokens.map((token) => Token.fromObject(token));
 }

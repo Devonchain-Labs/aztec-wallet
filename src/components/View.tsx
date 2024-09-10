@@ -7,7 +7,7 @@ import { AccountWallet, AztecAddress } from '@aztec/aztec.js';
 import { TokenContractArtifact } from "@aztec/noir-contracts.js/Token";
 import { WalletProvider } from './WalletContext.tsx';
 import { ContractArtifact } from '@aztec/foundation/abi';
-import { useTokens } from '../hooks/Tokens.ts';
+import { getTokens } from '../hooks/Tokens.ts';
 import { getWallet } from '../hooks/WalletService.ts';
 
 interface ViewProps {
@@ -51,7 +51,7 @@ const View: React.FC<ViewProps> = ({ view, onBack }) => {
 
   const handleCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedOption = e.target.value;
-    const currencyOptions: CurrencyOptionProps[] = useTokens();
+    const currencyOptions: CurrencyOptionProps[] = getTokens();
 
     const selectedCurrency = currencyOptions.find(option => option.symbol === selectedOption);
     if (selectedCurrency) {

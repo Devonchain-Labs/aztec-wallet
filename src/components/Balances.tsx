@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getBalance } from '../hooks/WalletService.ts';
-import { useTokens } from '../hooks/Tokens.ts';
+import { getTokens } from '../hooks/Tokens.ts';
 
 
 const Balances: React.FC = () => {
@@ -9,7 +9,7 @@ const Balances: React.FC = () => {
   useEffect(() => {
     const fetchBalances = async () => {
       let newBalances: { [address: string]: number } = {};
-      const tokenAddresses = useTokens();
+      const tokenAddresses = getTokens();
       for (const address of tokenAddresses) {
         const balance = await getBalance(address.address);
 
