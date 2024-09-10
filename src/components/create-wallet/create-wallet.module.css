@@ -1,0 +1,22 @@
+.container{
+    padding: 20px;
+    background-color: var(--background-secondary);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.title{
+    color:#fff;
+}
+.mnemonicDisplay {
+    padding: 20px;
+    background-color: var(--background-primary);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #fff;
+    word-break: break-word;
+  }

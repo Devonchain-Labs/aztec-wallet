@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { generateMnemonic, setWallet } from '../hooks/WalletService.ts';
-
+import { generateMnemonic, setWallet } from '../../hooks/WalletService.ts';
+import Button from '../_common/button/Button.tsx';
+import styles from "./create-wallet.module.css"
 interface CreateWalletProps {
   onProceed: () => void;
 }
@@ -22,12 +23,12 @@ const CreateWallet: React.FC<CreateWalletProps> = ({ onProceed }) => {
   }, []);
 
   return (
-    <div className="create-wallet-container">
-      <h2>Create New Wallet</h2>
-      <div className="mnemonic-display">
+    <div className={styles.container}>
+      <h2 className={styles.title}>Create New Wallet</h2>
+      <div className={styles.mnemonicDisplay}>
         <p>{mnemonic}</p>
       </div>
-      <button className="btn btn-primary" onClick={onProceed}>Proceed to Wallet</button>
+      <Button variant="primary"onClick={onProceed}>Proceed to Wallet</Button>
     </div>
   );
 };
