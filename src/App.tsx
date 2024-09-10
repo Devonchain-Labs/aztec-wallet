@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import CreateWallet from './components/create-wallet/CreateWallet.tsx';
 import Interactions from './components/Interactions.tsx';
 import View from './components/View.tsx';
-import RecoverWallet from './components/RecoverWallet.tsx';
+import RecoverWallet from './components/recover-wallet/RecoverWallet.tsx';
 import { WalletProvider } from './components/WalletContext.tsx';
 import WalletOptions from './components/wallet-options/WalletOptions.tsx';
 
