@@ -1,0 +1,18 @@
+.container{
+    padding: 20px;
+    background-color: var(--background-secondary);   
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.buttonsClassName{
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.title{
+color:#fff;
+margin-bottom: 2rem;
+}

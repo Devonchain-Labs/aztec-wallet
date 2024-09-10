@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import WalletOptions from './components/WalletOptions.tsx';
-import CreateWallet from './components/CreateWallet.tsx';
+
+import CreateWallet from './components/create-wallet/CreateWallet.tsx';
 import Interactions from './components/Interactions.tsx';
 import View from './components/View.tsx';
 import RecoverWallet from './components/RecoverWallet.tsx';
 import { WalletProvider } from './components/WalletContext.tsx';
+import WalletOptions from './components/wallet-options/WalletOptions.tsx';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState('wallet-options');

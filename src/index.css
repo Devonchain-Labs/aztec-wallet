@@ -6,8 +6,16 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--background-primary);
 }
-
+:root{
+    --aztec-button-color:#e98fff;
+    --aztec-button-color-hover:#eda1ff;
+    --aztec-button-color-secondary:#8c7eff;
+    --aztec-button-color-secondary-hover:#9894ff;
+    --background-primary:#171717;
+    --background-secondary:black;
+}
 #root {
   display: flex;
   justify-content: center;
@@ -15,6 +23,7 @@ body, html {
   width: 100%;
   height: 100%;
   flex-direction: column;
+ 
 }
 
 .input-spacing {
@@ -174,22 +183,22 @@ body, html {
   }
   
   .btn-secondary {
-    background-color: #6c757d;
+    background-color: var(--aztec-button-color-secondary);
     color: #fff;
     margin-right: 10px;
   }
   
   .btn-secondary:hover {
-    background-color: #5a6268;
+    background-color: var(--aztec-button-color-secondary-hover);
   }
   
   .btn-primary {
-    background-color: #007bff;
+    background-color: var(--aztec-button-color);
     color: #fff;
   }
   
   .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: var(--aztec-button-color-hover);
   }
 
   .interactions-container {
