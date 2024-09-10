@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PaymentProvider from './PaymentProvider.tsx';
 // import CurrencyOption from './CurrencyOption.tsx';
 import FeeAmount from './FeeAmount.tsx';
-import { simulateTransaction } from '../hooks/WalletService.js';
+import { createPublicTransaction } from '../hooks/WalletService.js';
 import { AccountWallet, AztecAddress } from '@aztec/aztec.js';
 import { TokenContractArtifact } from "@aztec/noir-contracts.js/Token";
 import { WalletProvider } from './WalletContext.tsx';
@@ -75,7 +75,7 @@ const View: React.FC<ViewProps> = ({ view, onBack }) => {
 
   const onSimulateTx = async (contractAddress: string, methodName: string, args: any[]) => {
     if (wallet) {
-      await simulateTransaction(
+      await createPublicTransaction(
         contractAddress, 
         methodName, 
         TokenContractArtifact as unknown as ContractArtifact,
