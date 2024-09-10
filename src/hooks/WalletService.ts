@@ -102,7 +102,6 @@ export const generateSchnorrAccountWallet = async (): Promise<AccountWallet> => 
 
 export const getAccountWallet = async (publicKey: string, privateKey: string): Promise<AccountWallet> => {
     const privateKeyBuffer = Buffer.from(privateKey, 'hex');
-    publicKey = '0x2e2c166b660354cc70e5921805fab730b71ce91b9c45d15132a505b1345a6938';
     const aztecAddress = AztecAddress.fromString(publicKey);
     const aztecWallet: AccountWallet = await getEcdsaKWallet(pxe, aztecAddress, privateKeyBuffer);
 
@@ -110,9 +109,7 @@ export const getAccountWallet = async (publicKey: string, privateKey: string): P
 }
 
 export const getAccountWalletSchnorr = async (publicKey: string, privateKey: string): Promise<AccountWallet> => {
-    privateKey = "0x01308acb2b7cdfe8240738e99f2366898401962b6a4e9089014f212ab1d91479";
     const privateKeyBuffer = GrumpkinScalar.fromString(privateKey);
-    publicKey = '0x2766b7b3334164fea4e9e90773ac92900bce098feab688000d62bc102990c7f7';
     const aztecAddress = AztecAddress.fromString(publicKey);
     const aztecWallet: AccountWallet = await getSchnorrWallet(pxe, aztecAddress, privateKeyBuffer);
 
