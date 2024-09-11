@@ -1,0 +1,1 @@
+export type TModals ="buy-modal"|undefined

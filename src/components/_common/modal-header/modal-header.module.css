@@ -1,0 +1,28 @@
+.headerZone{
+    display: flex;
+    justify-content: space-between;   
+    align-items: center;
+    gap:1rem
+}
+.title{
+    color:#fff;
+}
+.iconWrapper{
+    border-radius: 100%;
+    padding: 0.5rem;
+    display: flex;
+    cursor: pointer;
+}
+.iconWrapper:hover{
+    background-color: var(--background-primary);
+}
+.iconWrapper:hover .closeIcon{
+    fill:var(--aztec-button-color)
+}
+.closeIcon{
+    width: 0.75rem;
+    height: 0.75rem;
+    fill:#fff;
+    cursor: pointer;
+    
+}

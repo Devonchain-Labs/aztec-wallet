@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import View from './View.tsx';
 import Balances from './Balances.tsx';
 import TransactionHistory from './TransactionHistory.tsx';
 import Button from './_common/button/Button.tsx';
+import { ModalContext } from '../App.tsx';
 
 const Interactions: React.FC = () => {
+  const {openModal} =useContext(ModalContext)
   const [currentView, setCurrentView] = useState<string>('default');
 
   const handleBuy = () => {
-    setCurrentView('buy');
+    openModal?.("buy-modal");
   };
 
   const handleSend = () => {

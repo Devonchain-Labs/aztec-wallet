@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PaymentProvider from './PaymentProvider.tsx';
 // import CurrencyOption from './CurrencyOption.tsx';
 import FeeAmount from './FeeAmount.tsx';
 import { createPublicTransaction } from '../hooks/WalletService.js';
@@ -9,6 +8,7 @@ import { WalletProvider } from './WalletContext.tsx';
 import { ContractArtifact } from '@aztec/foundation/abi';
 import { getTokens } from '../hooks/Tokens.ts';
 import { getWallet } from '../hooks/WalletService.ts';
+import PaymentProvider from './payment-provider/PaymentProvider.tsx';
 
 interface ViewProps {
   view: string;
