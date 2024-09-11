@@ -16,6 +16,7 @@ const Interactions: React.FC = () => {
 
   const handleSend = () => {
     setCurrentView('send');
+    openModal?.('send-modal')
   };
 
   const handleReceive = () => {

@@ -1,6 +1,7 @@
 import React, { useContext, useMemo } from "react";
 import { ModalContext } from "../../../App.tsx";
 import BuyModal from "../../modals/buy-modal/BuyModal.tsx";
+import SendModal from "../../modals/send-modal/SendModal.tsx";
 
 interface Props {
     children: React.ReactNode;
@@ -15,6 +16,11 @@ const ModalsProvider = ({ children }: Props) => {
                 return (
                     <BuyModal
                         onClose={closeModal} isOpen></BuyModal>
+                );
+            case "send-modal":
+                return (
+                    <SendModal
+                        onClose={closeModal} isOpen></SendModal>
                 );
            
         }

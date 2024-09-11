@@ -9,7 +9,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     error?:string
 }
 
-const Button: React.FC<InputProps> = ({ id,label,error,wrapperClassName,inputClassName,errorClassName,...rest }) => {
+const Input: React.FC<InputProps> = ({ id,label,error,wrapperClassName,inputClassName,errorClassName,...rest }) => {
   return (
     <div className={`${styles.container} ${wrapperClassName||""}`}>
         {label && <label className={styles.label} htmlFor={id}> {label} </label>}          
@@ -26,4 +26,4 @@ const Button: React.FC<InputProps> = ({ id,label,error,wrapperClassName,inputCla
   );
 };
 
-export default Button;
+export default Input;

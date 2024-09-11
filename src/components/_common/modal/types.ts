@@ -1,1 +1,1 @@
-export type TModals ="buy-modal"|undefined
+export type TModals ="buy-modal"|"send-modal"|undefined

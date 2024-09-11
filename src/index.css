@@ -15,7 +15,9 @@ body, html {
     --aztec-button-color-secondary-hover:#9894ff;
     --background-primary:#171717;
     --background-secondary:black;
-    --status-error:#ff0000;
+    --status-error:#F83E3E;
+    --status-success: #00DA9F;
+    --input-border-color:#444444;
 }
 #root {
   display: flex;

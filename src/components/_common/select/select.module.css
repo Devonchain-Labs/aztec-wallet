@@ -8,32 +8,24 @@
     color:#fff;
     font-size: 0.75rem;
 }
-.input {
-    border-radius: 8px;
-    border: 1px solid var(--input-border-color);
+.selectBox{
     background-color: var(--background-primary);
-    width: 100%;
-    opacity: 1;
-    color:#fff;
-    outline:none;
     border:1px solid var(--input-border-color);
+    border-radius: 8px;
     padding: 0.5rem; 
+    color:#fff;
+    cursor:pointer;
     font-size: 1rem;
 }
-
-.input:focus {
+.selectBox option{
+cursor: pointer;
+}
+.selectBox:active{
     border-color: var(--aztec-button-color);
 }
-
-.input::placeholder {
-    color: #dbdad7;
+.selectBox:focus{
+    border-color: var(--aztec-button-color);
 }
-.input::-webkit-outer-spin-button,
-.input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 .error {
     border-color: var(--status-error);
 }
