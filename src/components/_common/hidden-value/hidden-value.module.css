@@ -1,0 +1,11 @@
+.wrapper{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+.icon{
+    width: 0.75rem;
+    height: 0.75rem;
+    fill:#fff;
+    cursor: pointer;    
+}

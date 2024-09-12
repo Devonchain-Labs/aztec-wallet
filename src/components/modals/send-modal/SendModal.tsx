@@ -13,7 +13,7 @@ const tabs=['Transactions Details','Transaction Summary']
 const sendTransactionSchema=Yup.object().shape({
   currency:Yup.string().required('Required'),
   amount:Yup.number().positive("The  amount must be greather than 0.").required('Required').typeError("The amount must be a number"),
-  receiver:Yup.string()?.required("Required")
+  receiver:Yup.string().required("Required")
 })
 const sendTransactionInitialValues={
   currency:"",
@@ -35,7 +35,7 @@ interface SendTransactionProps{
 }
 const SendModal: React.FC<BaseModalProps> = ({ onClose, isOpen }) => {
   const [step,setStep]=useState(0);
-  const [values,setValues]=useState<Partial<SendTransactionProps>>({})
+  const [values,setValues]=useState<Partial<SendTransactionProps>>(sendTransactionInitialValues)
 
     return (
         <Modal onClose={onClose} isOpen={isOpen}>
@@ -52,7 +52,7 @@ const SendModal: React.FC<BaseModalProps> = ({ onClose, isOpen }) => {
                     {step===0 ?
                      
                         <Formik
-                        initialValues={sendTransactionInitialValues}
+                        initialValues={values}
                               onSubmit={(values,actions)=>{
                                 console.log(values)
                                 setValues(values)
@@ -78,7 +78,8 @@ const SendModal: React.FC<BaseModalProps> = ({ onClose, isOpen }) => {
                               value={props?.values?.receiver}
                               onChange={props.handleChange}
                               id="receiver"
-                              label="Receiver Address:"                             
+                              label="Receiver Address:"    
+                              error={props?.errors?.receiver}                         
                             />
                             <Button variant='primary' type="submit" className={styles.trBtn}>Transaction Summary</Button>
                         </form>)}

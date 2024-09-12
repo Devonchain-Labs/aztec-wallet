@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--background-secondary);
+    border-radius: 0.5rem;
+    min-width: 300px;
+    min-height: 400px;
+}
+.list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+.addressContainer {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.adres {
+    font-size: 12px;
+}
+.icon {
+    width: 0.75rem;
+    height: 0.75rem;
+    fill: #fff;
+    cursor: pointer;
+}
+.icon:hover {
+    fill: var(--aztec-button-color);
+}
+.qrCode {
+    width: 200px;
+    height: 200px;
+    margin-top: 1rem;
+    align-self: center;
+}

@@ -40,7 +40,7 @@ const View: React.FC<ViewProps> = ({ view, onBack }) => {
 
     fetchWallet();
   },[]);
-
+console.log("wallet", wallet)
   const handleSelectProvider = (provider: string) => {
     console.log(`Selected provider: ${provider}`);
   };

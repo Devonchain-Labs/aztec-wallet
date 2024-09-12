@@ -1,28 +1,27 @@
-.headerZone{
+.headerZone {
     display: flex;
-    justify-content: space-between;   
+    justify-content: space-between;
     align-items: center;
-    gap:1rem
+    gap: 1rem;
 }
-.title{
-    color:#fff;
+.title {
+    color: #fff;
 }
-.iconWrapper{
+.iconWrapper {
     border-radius: 100%;
     padding: 0.5rem;
     display: flex;
     cursor: pointer;
 }
-.iconWrapper:hover{
-    background-color: var(--background-primary);
+.iconWrapper:hover {
+    background-color: var(--aztec-button-color-secondary-50-hover);
 }
-.iconWrapper:hover .closeIcon{
-    fill:var(--aztec-button-color)
+.iconWrapper:hover .closeIcon {
+    fill: var(--aztec-button-color);
 }
-.closeIcon{
-    width: 0.75rem;
-    height: 0.75rem;
-    fill:#fff;
+.closeIcon {
+    width: 1rem;
+    height: 1rem;
+    fill: #fff;
     cursor: pointer;
-    
 }
