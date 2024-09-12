@@ -1,0 +1,53 @@
+.container {
+    padding: 20px;
+    background-color: var(--background-secondary);
+    border-radius: 8px;
+    min-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.tokens {
+    display: flex;
+    gap: 1rem;
+    color: #fff;
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+.tokens li {
+    cursor: pointer;
+}
+.selected {
+    color: var(--aztec-button-color);
+}
+.selectedBalanceContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(#bdc3c7, #2c3e50);
+}
+.balanceItem {
+    display: flex;
+    gap: 1rem;
+    color: #fff;
+}
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.iconWrapper {
+    border-radius: 50%;
+    padding: 0.5rem;
+    background-color: var(--aztec-button-color-secondary-50);
+    cursor: pointer;
+}
+.iconWrapper:hover {
+    background-color: var(--aztec-button-color-secondary-50-hover);
+}
+.iconWrapper svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--aztec-button-color);
+}

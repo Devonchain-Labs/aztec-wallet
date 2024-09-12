@@ -1,4 +1,4 @@
-const defaultTokens: Object[] = [
+const defaultTokens: {name:string,address:string,decimals:number,symbol:string}[] = [
     {
         name: "Ethereum",
         address: "0x0a27783451352d5bb8e8759ffef22b79494d8466fae67f6b3986f7392b2c6c52",

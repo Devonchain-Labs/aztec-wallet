@@ -1,38 +1,42 @@
 /* styles.css */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--background-primary);
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-primary);
+    color: #fff;
 }
-:root{
-    --aztec-button-color:#e98fff;
-    --aztec-button-color-hover:#eda1ff;
-    --aztec-button-color-secondary:#8c7eff;
-    --aztec-button-color-secondary-hover:#9894ff;
-    --background-primary:#171717;
-    --background-secondary:black;
-    --status-error:#F83E3E;
-    --status-success: #00DA9F;
-    --input-border-color:#444444;
+:root {
+    --aztec-button-color: #e98fff;
+    --aztec-button-color-50: #e98fff80;
+    --aztec-button-color-hover: #eda1ff;
+    --aztec-button-color-50-hover: #eda1ff80;
+    --aztec-button-color-secondary: #8c7eff;
+    --aztec-button-color-secondary-50: #8c7eff80;
+    --aztec-button-color-secondary-hover: #9894ff;
+    --aztec-button-color-secondary-50-hover: #9894ff80;
+    --background-primary: #171717;
+    --background-secondary: black;
+    --status-error: #f83e3e;
+    --status-success: #00da9f;
+    --input-border-color: #444444;
 }
 #root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
- 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
 }
 
 .input-spacing {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
-
 
 .send-view,
 .receive-view {
@@ -87,13 +91,13 @@ body, html {
 
 .fee-amount {
     margin-top: 20px;
-  font-size: 16px;
-  color: #333; /* Ensure text is visible */
-  background-color: #f1f1f1; /* Light grey background for contrast */
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  }
+    font-size: 16px;
+    color: #333; /* Ensure text is visible */
+    background-color: #f1f1f1; /* Light grey background for contrast */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
 
 .navbar {
     display: flex;
@@ -131,18 +135,17 @@ body, html {
     margin: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .transaction-history-container {
+.transaction-history-container {
     background-color: #646464;
     padding: 20px;
     margin: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+}
 
-
-  .transaction-summary-view {
+.transaction-summary-view {
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -150,87 +153,87 @@ body, html {
     max-width: 600px;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .transaction-summary-view h3 {
+}
+
+.transaction-summary-view h3 {
     margin-bottom: 20px;
     color: #333;
     text-align: center;
-  }
-  
-  .transaction-details {
+}
+
+.transaction-details {
     margin-top: 20px;
     font-size: 16px;
     color: #333;
-  }
-  
-  .transaction-details p {
+}
+
+.transaction-details p {
     margin: 10px 0;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
-  }
-  
-  .transaction-details strong {
+}
+
+.transaction-details strong {
     display: inline-block;
     width: 150px;
-  }
-  
-  .btn {
+}
+
+.btn {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  .btn-secondary {
+}
+
+.btn-secondary {
     background-color: var(--aztec-button-color-secondary);
     color: #fff;
     margin-right: 10px;
-  }
-  
-  .btn-secondary:hover {
+}
+
+.btn-secondary:hover {
     background-color: var(--aztec-button-color-secondary-hover);
-  }
-  
-  .btn-primary {
+}
+
+.btn-primary {
     background-color: var(--aztec-button-color);
     color: #fff;
-  }
-  
-  .btn-primary:hover {
-    background-color: var(--aztec-button-color-hover);
-  }
+}
 
-  .interactions-container {
+.btn-primary:hover {
+    background-color: var(--aztec-button-color-hover);
+}
+
+.interactions-container {
     padding: 20px;
     height: 100vh;
-  }
-  
-  .interactions-container h2 {
+}
+
+.interactions-container h2 {
     margin-bottom: 20px;
-  }
-  
-  .interactions-container button {
+}
+
+.interactions-container button {
     margin: 10px 0; /* Add vertical space between buttons */
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  .interactions-container button:first-child {
+}
+
+.interactions-container button:first-child {
     margin-top: 0; /* Remove top margin for the first button */
-  }
-  
-  .interactions-container button:last-child {
+}
+
+.interactions-container button:last-child {
     margin-bottom: 0; /* Remove bottom margin for the last button */
-  }
+}
 
-  .wallet-options-container {
+.wallet-options-container {
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -239,9 +242,9 @@ body, html {
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
+}
 
-  .recover-wallet-container {
+.recover-wallet-container {
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -250,14 +253,14 @@ body, html {
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
-  
-  .wallet-options-container h2 {
+}
+
+.wallet-options-container h2 {
     margin-bottom: 20px;
     color: #333;
-  }
-  
-  .wallet-options-container .btn {
+}
+
+.wallet-options-container .btn {
     display: block;
     width: 100%;
     margin: 10px 0;
@@ -266,27 +269,27 @@ body, html {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  .wallet-options-container .btn-primary {
+}
+
+.wallet-options-container .btn-primary {
     background-color: #007bff;
     color: #fff;
-  }
-  
-  .wallet-options-container .btn-primary:hover {
+}
+
+.wallet-options-container .btn-primary:hover {
     background-color: #0056b3;
-  }
-  
-  .wallet-options-container .btn-secondary {
+}
+
+.wallet-options-container .btn-secondary {
     background-color: #6c757d;
     color: #fff;
-  }
-  
-  .wallet-options-container .btn-secondary:hover {
-    background-color: #5a6268;
-  }
+}
 
-  .create-wallet-container {
+.wallet-options-container .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.create-wallet-container {
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -295,14 +298,14 @@ body, html {
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
-  
-  .create-wallet-container h2 {
+}
+
+.create-wallet-container h2 {
     margin-bottom: 20px;
     color: #333;
-  }
-  
-  .mnemonic-display {
+}
+
+.mnemonic-display {
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -311,21 +314,21 @@ body, html {
     font-size: 16px;
     color: #333;
     word-break: break-word;
-  }
-  
-  .create-wallet-container .btn {
+}
+
+.create-wallet-container .btn {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  .create-wallet-container .btn-primary {
+}
+
+.create-wallet-container .btn-primary {
     background-color: #007bff;
     color: #fff;
-  }
-  
-  .create-wallet-container .btn-primary:hover {
+}
+
+.create-wallet-container .btn-primary:hover {
     background-color: #0056b3;
-  }
+}
