@@ -24,5 +24,5 @@
 }
 
 .container .colorNormal {
-    color: #fff;
+    color: var(--text-primary);
 }

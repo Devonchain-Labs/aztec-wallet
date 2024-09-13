@@ -4,8 +4,9 @@
     padding: 1rem;
     background-color: var(--background-secondary);
     border-radius: 0.5rem;
-    min-width: 300px;
+    width: var(--modal-md-width);
     min-height: 400px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1), 0 2px 5px rgba(255, 255, 255, 0.05);
 }
 .transactionDetails {
     display: flex;
@@ -43,7 +44,7 @@
 }
 
 .container .colorNormal {
-    color: #fff;
+    color: var(--text-primary);
 }
 .selectable {
     cursor: pointer;

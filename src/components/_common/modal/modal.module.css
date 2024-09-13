@@ -6,22 +6,29 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    -moz-backdrop-filter: blur(16px);
+    -o-backdrop-filter: blur(16px);
+    mix-blend-mode: normal;
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .outerContainer {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
 .show {
     opacity: 1;
     pointer-events: all;
-    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .hide {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 @media screen and (max-width: 1010px) {
     .container {
