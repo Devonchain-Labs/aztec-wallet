@@ -3,6 +3,7 @@ import { ModalContext } from "../../../App.tsx";
 import BuyModal from "../../modals/buy-modal/BuyModal.tsx";
 import SendModal from "../../modals/send-modal/SendModal.tsx";
 import ReceiveModal from "../../modals/receive-modal/ReceiveModal.tsx";
+import TransactionDetailsModal from "../../modals/transaction-details-modal/TransactionDetailsModal.tsx";
 
 interface Props {
     children: React.ReactNode;
@@ -19,6 +20,14 @@ const ModalsProvider = ({ children }: Props) => {
                 return <SendModal onClose={closeModal} isOpen></SendModal>;
             case "receive-modal":
                 return <ReceiveModal onClose={closeModal} isOpen></ReceiveModal>;
+            case "transaction-details-modal":
+                return (
+                    <TransactionDetailsModal
+                        onClose={closeModal}
+                        {...props?.transactionDetailsProps}
+                        isOpen
+                    ></TransactionDetailsModal>
+                );
         }
     }, [modal, props]);
 

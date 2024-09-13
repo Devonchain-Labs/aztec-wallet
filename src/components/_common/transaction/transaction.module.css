@@ -1,0 +1,28 @@
+.container {
+    padding: 20px;
+    background-color: var(--background-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.container .colorSuccess {
+    color: var(--status-success);
+}
+
+.container .colorError {
+    color: var(--status-error);
+}
+
+.container .colorWarning {
+    color: var(--status-warning);
+}
+
+.container .colorNormal {
+    color: #fff;
+}
