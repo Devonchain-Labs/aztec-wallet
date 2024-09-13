@@ -45,6 +45,6 @@
 .container .colorNormal {
     color: #fff;
 }
-.selected {
+.selectable {
     cursor: pointer;
 }
