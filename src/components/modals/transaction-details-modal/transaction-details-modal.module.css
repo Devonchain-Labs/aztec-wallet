@@ -45,3 +45,6 @@
 .container .colorNormal {
     color: #fff;
 }
+.selected {
+    cursor: pointer;
+}

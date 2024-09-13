@@ -5,13 +5,17 @@ import ModalHeader from "../../_common/modal-header/ModalHeader.tsx";
 import { TransactionProps } from "../../_common/transaction/Transaction.tsx";
 import ValueWithLabel from "../../_common/value-with-label/ValueWithLabel.tsx";
 import { TModalProps } from "../../_common/modal/types.ts";
-import { getStatusClassName } from "../../../helpers/helper.ts";
+import { getStatusClassName, truncate } from "../../../helpers/helper.ts";
+import { toast } from "react-toastify";
 
 const TransactionDetailsModal: React.FC<
     BaseModalProps & Partial<TModalProps["transactionDetailsProps"]>
 > = ({ onClose, isOpen, transaction }) => {
     const date = new Date(transaction?.timestamp || "");
     const dateAsString = date?.toLocaleString();
+    const copy = (value: string) => {
+        navigator.clipboard.writeText(value);
+    };
     return (
         <Modal onClose={onClose} isOpen={isOpen}>
             <div className={styles.container}>
@@ -29,8 +33,27 @@ const TransactionDetailsModal: React.FC<
                         <p className={styles[getStatusClassName(transaction?.status || "")]}>
                             {transaction?.status}
                         </p>
-                        <p>Tx hash:</p> <p>{transaction?.paidFee}</p>
-                        <p>contr:</p> <p>{transaction?.paidFee}</p>
+                        <p>Tx hash:</p>{" "}
+                        <p
+                            className={styles.selectable}
+                            onClick={() => {
+                                copy(transaction?.txHash || "");
+                                toast.success("Copied", { containerId: "modalContainer" });
+                            }}
+                        >
+                            {" "}
+                            {truncate(transaction?.txHash || "", 4, "...")}
+                        </p>
+                        <p>contract:</p>{" "}
+                        <p
+                            className={styles.selectable}
+                            onClick={() => {
+                                copy(transaction?.contract || "");
+                                toast.success("Copied", { containerId: "modalContainer" });
+                            }}
+                        >
+                            {transaction?.contract}
+                        </p>
                     </div>
                 </div>
             </div>
