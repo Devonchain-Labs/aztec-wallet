@@ -3,13 +3,13 @@
     background-color: var(--background-secondary);
     border-radius: 8px;
     min-width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1), 0 2px 5px rgba(255, 255, 255, 0.05);
     text-align: center;
 }
 .tokens {
     display: flex;
     gap: 1rem;
-    color: #fff;
+    color: var(--text-primary);
     margin-top: 1rem;
     overflow-x: auto;
 }
@@ -30,7 +30,7 @@
 .balanceItem {
     display: flex;
     gap: 1rem;
-    color: #fff;
+    color: var(--text-primary);
 }
 .actions {
     display: flex;

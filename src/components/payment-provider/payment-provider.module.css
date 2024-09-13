@@ -1,14 +1,14 @@
-.container{
-    color:#fff;
+.container {
+    color: var(--text-primary);
     padding: 0.5rem;
     border-radius: 0.5rem;
     background-color: var(--background-primary);
     cursor: pointer;
     width: 100%;
 }
-.title{
+.title {
     margin: 0;
 }
-.container:hover .title{
-color:var(--aztec-button-color)
+.container:hover .title {
+    color: var(--aztec-button-color);
 }

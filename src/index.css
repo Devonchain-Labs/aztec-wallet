@@ -19,12 +19,16 @@ html {
     --aztec-button-color-secondary-50: #8c7eff80;
     --aztec-button-color-secondary-hover: #9894ff;
     --aztec-button-color-secondary-50-hover: #9894ff80;
+    --disabled-button: #3a3a3a;
     --background-primary: #171717;
     --background-secondary: black;
     --status-error: #f83e3e;
     --status-success: #00da9f;
     --status-warning: #ffb507;
     --input-border-color: #444444;
+    --text-primary: #f5f5f5;
+    --text-secondary: #bdc3c7;
+    --modal-md-width: 400px;
 }
 #root {
     display: flex;
