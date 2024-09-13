@@ -2,17 +2,17 @@
 import React, { createContext, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import CreateWallet from "./components/create-wallet/CreateWallet.tsx";
-import Interactions from "./components/Interactions.tsx";
+import Interactions from "./components/interactions/Interactions.tsx";
 import RecoverWallet from "./components/recover-wallet/RecoverWallet.tsx";
 import { WalletProvider } from "./components/WalletContext.tsx";
 import WalletOptions from "./components/wallet-options/WalletOptions.tsx";
-import { TModals } from "./components/_common/modal/types.ts";
+import { TModalProps, TModals } from "./components/_common/modal/types.ts";
 import ModalsProvider from "./components/_common/modals-provider/ModalsProvider.tsx";
 import { ToastContainer } from "react-toastify";
 interface ModalContextProps {
     modal: TModals;
-    props?: any;
-    openModal?: (modal: TModals, props?: any) => void;
+    props?: TModalProps;
+    openModal?: (modal: TModals, props?: TModalProps) => void;
     closeModal: () => void;
 }
 export const ModalContext = createContext<ModalContextProps>({

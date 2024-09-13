@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Modal, { BaseModalProps } from "../../_common/modal/Modal.tsx";
 import styles from "./receive-modal.module.css";
 import ModalHeader from "../../_common/modal-header/ModalHeader.tsx";
-import PaymentProvider from "../../payment-provider/PaymentProvider.tsx";
 import CloneIcon from "../../_common/icons/CloneIcon.tsx";
 import OpenLinkIcon from "../../_common/icons/OpenLinkIcon.tsx";
 import { toast } from "react-toastify";
 const ReceiveModal: React.FC<BaseModalProps> = ({ onClose, isOpen }) => {
-    const [qrCode, setQrCode] = useState(undefined);
     const address = "0x18701FD1acd081c0Fd6C56459Faf2DAd78A5Fe27";
     const link = "https://etherscan.io/address/0x18701FD1acd081c0Fd6C56459Faf2DAd78A5Fe27";
-    useEffect(() => {
-        fetch(
-            `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURI(
-                "https://etherscan.io/address/0x18701FD1acd081c0Fd6C56459Faf2DAd78A5Fe27",
-            )}`,
-        ).then(res => setQrCode(res));
-    }, []);
+
     const copyToClipboard = () => {
         navigator.clipboard.writeText(address);
         toast.success("Copied!", { position: "top-right", containerId: "modalContainer" });

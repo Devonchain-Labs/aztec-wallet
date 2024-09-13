@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--background-secondary);
+    border-radius: 0.5rem;
+    min-width: 300px;
+    min-height: 400px;
+}
+.transactionDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.topSection {
+    text-align: center;
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 1rem;
+    cursor: pointer;
+}
+.bottomSection {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: auto auto;
+    padding: 1rem;
+    background-color: var(--background-primary);
+    border-radius: 0.5rem;
+    border: 1px solid var(--input-border-color);
+}
+.container .colorSuccess {
+    color: var(--status-success);
+}
+
+.container .colorError {
+    color: var(--status-error);
+}
+
+.container .colorWarning {
+    color: var(--status-warning);
+}
+
+.container .colorNormal {
+    color: #fff;
+}
+.selectable {
+    cursor: pointer;
+}
