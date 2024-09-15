@@ -2,7 +2,7 @@ import * as bip39 from '@scure/bip39';
 import { wordlist } from '@scure/bip39/wordlists/english';
 import { ec as EC } from 'elliptic';
 import { getEcdsaKAccount, getEcdsaKWallet } from '@aztec/accounts/ecdsa';
-import { getSchnorrAccount, getSchnorrWallet } from '@aztec/accounts/schnorr';
+import { getSchnorrAccount, getSchnorrWallet, SchnorrAccountContractArtifact } from '@aztec/accounts/schnorr';
 import { 
     AccountWallet, 
     AztecAddress, 
@@ -13,12 +13,20 @@ import {
     GrumpkinScalar, 
     Note, 
     Tx, 
-    TxHash 
+    TxHash,
+    getContractClassFromArtifact,
+    deriveKeys
 } from '@aztec/aztec.js';
+import { 
+    computeInitializationHash, 
+    computeContractClassId,
+    computeContractAddressFromInstance,
+    computePartialAddress
+}  from "@aztec/circuits.js/contract";
 import pxe from './PXEService.ts';
 import { deriveSigningKey } from '@aztec/circuits.js';
 import { SimulatedTx } from '@aztec/circuit-types';
-import { FunctionType, type NoteSelector } from '@aztec/foundation/abi';
+import { FunctionType, type NoteSelector, FunctionAbi } from '@aztec/foundation/abi';
 import { TokenContract, TokenContractArtifact } from '@aztec/noir-contracts.js/Token';
 import { Fr as FieldFr } from '@aztec/foundation/fields';
 import { addPendingTransaction } from './TransactionService.ts';
@@ -249,4 +257,73 @@ export const addPendingShieldNoteToPXE = async (constractAddress: string, amount
     );
 
     await wallet.addNote(extendedNote);
+}
+
+export const accountsDiscovery = async (walletDeployer: AztecAddress, keyPair: EC.KeyPair): Promise<AztecAddress[]> => {
+    let salt = 0;
+    let discovery = true;
+    let accounts: AztecAddress[] = [];
+
+    while (discovery) {
+        const {contractAddress} = calculateContractHash(walletDeployer, keyPair, salt);
+        discovery = await pxe.isContractPubliclyDeployed(contractAddress);
+
+        if (discovery) {
+            salt++;
+            accounts.push(contractAddress);
+        } else {
+            localStorage.setItem("salt", salt.toString());
+        }
+    }
+
+    return accounts;
+}
+
+
+export const calculateContractHash = (deployer: AztecAddress, keyPair: EC.KeyPair, salt: number)  => {
+    const contractClass = getContractClassFromArtifact(SchnorrAccountContractArtifact);
+    const hashedContractClassId = computeContractClassId(contractClass);
+    const hashedSalt = new Fr(salt);
+
+    const constructorArtifact = SchnorrAccountContractArtifact.functions.find(f => f.name === "constructor");
+    let constructorAbi: FunctionAbi | undefined;
+    if (constructorArtifact) {
+        constructorAbi = {
+            name: constructorArtifact.name,
+            parameters: constructorArtifact.parameters,
+            functionType: constructorArtifact.functionType,
+            isStatic: constructorArtifact.isStatic,
+            returnTypes: constructorArtifact.returnTypes,
+            isInternal: constructorArtifact.isInternal,
+            isInitializer: constructorArtifact.isInitializer,
+        };
+    }
+    const reduced_public_x = BigInt(keyPair.getPublic().getX().toString()) % Fr.MODULUS;
+    const reduced_public_y = BigInt(keyPair.getPublic().getY().toString()) % Fr.MODULUS;
+    
+    const initializationHash = computeInitializationHash(constructorAbi, [reduced_public_x, reduced_public_y]);
+    
+    const secretKey = Fr.fromString(keyPair.getPrivate('hex').toString());
+    const publicKeysHash = deriveKeys(secretKey).publicKeys.hash();
+    
+    const contractAddress = computeContractAddressFromInstance({
+        version: 1,
+        contractClassId: hashedContractClassId,
+        initializationHash: initializationHash,
+        salt: hashedSalt,
+        deployer: deployer,
+        publicKeysHash: publicKeysHash
+    });    
+
+    const partialAddress = computePartialAddress({
+        contractClassId: hashedContractClassId,
+        initializationHash: initializationHash,
+        salt: hashedSalt,
+        deployer: deployer
+    });
+
+    return {
+        contractAddress,
+        partialAddress
+    };
 }
