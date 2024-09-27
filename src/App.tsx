@@ -9,6 +9,7 @@ import WalletOptions from "./components/wallet-options/WalletOptions.tsx";
 import { TModalProps, TModals } from "./components/_common/modal/types.ts";
 import ModalsProvider from "./components/_common/modals-provider/ModalsProvider.tsx";
 import { ToastContainer } from "react-toastify";
+import Dashboard from "./components/dashboard/Dashboard.tsx";
 interface ModalContextProps {
     modal: TModals;
     props?: TModalProps;
@@ -52,16 +53,24 @@ const App: React.FC = () => {
             <WalletProvider>
                 <ModalsProvider>
                     <div className="app-container">
-                        {currentView === "wallet-options" && (
+                        {/* {currentView === "wallet-options" && (
                             <WalletOptions
                                 onCreateNewWallet={handleCreateNewWallet}
                                 onRecoverWallet={handleRecoverWallet}
                             />
+                        )} */}
+                        {currentView === "wallet-options" && (
+                            // <WalletOptions
+                            //     onCreateNewWallet={handleCreateNewWallet}
+                            //     onRecoverWallet={handleRecoverWallet}
+                            // />
+                            <Dashboard />
                         )}
                         {currentView === "create-wallet" && (
                             <CreateWallet onProceed={handleProceedToWallet} />
                         )}
-                        {currentView === "wallet-interactions" && <Interactions />}
+                        {/* {currentView === "wallet-interactions" && <Interactions />} */}
+                        {currentView === "wallet-interactions" && <Dashboard />}
                         {currentView === "recover-wallet" && (
                             <RecoverWallet onProceed={handleProceedToWallet} />
                         )}
